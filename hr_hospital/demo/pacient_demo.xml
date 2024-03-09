@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo noupdate="1">
+    <record id="pacient_olena" model="pacient">
+        <field name="name">Olena Olehivna</field>
+    </record>
+
+    <record id="pacient_oksana" model="pacient">
+        <field name="name">Oksana Andriivna</field>
+    </record>
+
+    <record id="pacient_anna" model="pacient">
+        <field name="name">Anna Vasylivna</field>
+    </record>
+
+</odoo>

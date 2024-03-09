@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo noupdate="1">
+    <record id="doctor_stepan" model="doctor">
+        <field name="name">Stepan Stepanovych</field>
+    </record>
+
+    <record id="doctor_bohdan" model="doctor">
+        <field name="name">Bohdan Bohdanovych</field>
+    </record>
+
+    <record id="doctor_maxym" model="doctor">
+        <field name="name">Maxym Maxymovych</field>
+    </record>
+
+</odoo>
