@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <record id="pacient_tree" model="ir.ui.view">
+            <field name="name">pacient.tree</field>
+            <field name="model">pacient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="pacient_form" model="ir.ui.view">
+            <field name="name">pacient.form</field>
+            <field name="model">pacient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="pacient_act_window" model="ir.actions.act_window">
+            <field name="name">Pacient</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pacient</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="pacient_menu"
+                  action="pacient_act_window"
+                  parent="main_menu"
+                  name="Pacient" sequence="200"/>
+
+
+</odoo>
