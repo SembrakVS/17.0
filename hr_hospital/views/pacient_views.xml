@@ -5,7 +5,13 @@
             <field name="model">pacient</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name"/>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="personal_doctor"/>
+                    <field name="birthday"/>
+                    <field name="age"/>
+                    <field name="passport"/>
+                    <field name="contact_person"/>
                 </tree>
             </field>
         </record>
@@ -20,6 +26,11 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="personal_doctor"/>
+                            <field name="birthday"/>
+                            <field name="age"/>
+                            <field name="passport"/>
+                            <field name="contact_person"/>
                         </group>
                     </sheet>
                 </form>
@@ -37,7 +48,6 @@
 
         <menuitem id="pacient_menu"
                   action="pacient_act_window"
-                  parent="main_menu"
                   name="Pacient" sequence="200"/>
 
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<oddo>
+    <menuitem id='maim_group_menu'
+              name="Hospital" sequence="0"/>
+
+    <menuitem id='doctor_group_menu'
+              parent="maim_group_menu"
+              name="Doctor menu" sequence="20"/>
+
+    <menuitem id='pacient_group_menu'
+              parent="maim_group_menu"
+              name="Pacient menu" sequence="20"/>
+
+    <menuitem id='other_group_menu'
+              parent="maim_group_menu"
+              name="Orher" sequence="30"/>
+
+</oddo>

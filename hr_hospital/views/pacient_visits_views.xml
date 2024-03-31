@@ -5,9 +5,11 @@
             <field name="model">pacient_visits</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="status_visits"/>
+                    <field name="plannet_visits_date"/>
+                    <field name="visits_date"/>
                     <field name="doctor_id"/>
                     <field name="pacient_id"/>
-                    <field name="date"/>
                 </tree>
             </field>
         </record>
@@ -21,9 +23,11 @@
                 <form>
                     <sheet>
                         <group>
+                            <field name="status_visits"/>
+                            <field name="plannet_visits_date"/>
+                            <field name="visits_date"/>
                             <field name="doctor_id"/>
                             <field name="pacient_id"/>
-                            <field name="date"/>
                         </group>
                     </sheet>
                 </form>

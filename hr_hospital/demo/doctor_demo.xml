@@ -2,15 +2,8 @@
 
 <odoo noupdate="1">
     <record id="doctor_stepan" model="doctor">
-        <field name="name">Stepan Stepanovych</field>
-    </record>
-
-    <record id="doctor_bohdan" model="doctor">
-        <field name="name">Bohdan Bohdanovych</field>
-    </record>
-
-    <record id="doctor_maxym" model="doctor">
-        <field name="name">Maxym Maxymovych</field>
+        <field name="first_name">Stepan</field>
+        <field name="last_name">Stepanovych</field>
     </record>
 
 </odoo>
