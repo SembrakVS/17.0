@@ -6,7 +6,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="status_visits"/>
-                    <field name="plannet_visits_date"/>
+                    <field name="planned_visits_date"/>
                     <field name="visits_date"/>
                     <field name="doctor_id"/>
                     <field name="pacient_id"/>
@@ -24,7 +24,7 @@
                     <sheet>
                         <group>
                             <field name="status_visits"/>
-                            <field name="plannet_visits_date"/>
+                            <field name="planned_visits_date"/>
                             <field name="visits_date"/>
                             <field name="doctor_id"/>
                             <field name="pacient_id"/>
@@ -45,6 +45,7 @@
 
         <menuitem id="pacient_visits_menu"
                   action="pacient_visits_act_window"
+                  parent="pacient_group_menu"
                   name="Pacient Visits" sequence="250"/>
 
 

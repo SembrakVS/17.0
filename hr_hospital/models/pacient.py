@@ -10,10 +10,12 @@ class Pacient(models.Model):
     _inherit = 'person'
 
     name = fields.Char(compute='_compute_name', store=True)
-    personal_doctor = fields.Many2one(string='Personal doctor', comodel_name='doctor')
+    personal_doctor = fields.Many2one(
+        string='Personal doctor',
+        comodel_name='doctor')
     birthday = fields.Date(string='Date of Birth')
     age = fields.Integer(compute='_compute_age')
-    passport = fields.Char()
+    passport = fields.Binary(attachment=True)
     contact_person = fields.Char()
 
     @api.depends('birthday')
@@ -22,7 +24,10 @@ class Pacient(models.Model):
             if rec.birthday:
                 rec.age = relativedelta(
                     date.today(),
-                    date(rec.birthday.year, rec.birthday.month, rec.birthday.day),
+                    date(
+                        rec.birthday.year,
+                        rec.birthday.month,
+                        rec.birthday.day),
                 ).years
             else:
                 rec.age = False

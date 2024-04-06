@@ -5,3 +5,5 @@ access_speciality,access_speciality,model_speciality,base.group_user,1,1,1,1
 access_doctor,access_doctor,model_doctor,base.group_user,1,1,1,1
 access_pacient,access_pacient,model_pacient,base.group_user,1,1,1,1
 access_pacient_visits,access_pacient_visits,model_pacient_visits,base.group_user,1,1,1,1
+access_change_doctor_wizard,access_change_doctor_wizard,model_change_doctor_wizard,base.group_user,1,1,1,1
+access_disease_report_wizard,access_disease_report_wizard,model_disease_report_wizard,base.group_user,1,1,1,1
