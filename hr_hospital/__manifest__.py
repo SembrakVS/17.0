@@ -17,15 +17,19 @@
 
     'data': [
         'security/ir.model.access.csv',
+        'views/main_menu.xml',
         'views/diseases_views.xml',
         'views/doctor_views.xml',
         'views/pacient_views.xml',
         'views/pacient_visits_views.xml',
+        'wizard/change_doctor_wizard_views.xml',
+        'wizard/disease_report_wizard_views.xml',
     ],
 
     'demo': [
         'demo/doctor_demo.xml',
         'demo/pacient_demo.xml',
+        'demo/disease_demo.xml',
     ],
 
     'installable': True,

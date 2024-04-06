@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="disease_migraine" model="diseases">
+        <field name="name">Migraine</field>
+    </record>
+
+    <record id="disease_flu" model="diseases">
+        <field name="name">Flu</field>
+    </record>
+
+    <record id="disease_back_pain" model="diseases">
+        <field name="name">Back Pain</field>
+    </record>
+
+    <record id="disease_cold" model="diseases">
+        <field name="name">Cold</field>
+    </record>
+
+    <record id="disease_headache" model="diseases">
+        <field name="name">Headache</field>
+        <field name="parent_id" ref="disease_migraine"/>
+    </record>
+
+    <record id="disease_stomach_flu" model="diseases">
+        <field name="name">Stomach Flu</field>
+        <field name="parent_id" ref="disease_flu"/>
+    </record>
+</odoo>

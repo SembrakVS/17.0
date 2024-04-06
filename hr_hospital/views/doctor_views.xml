@@ -6,6 +6,9 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
+                    <field name="speciality"/>
+                    <field name="is_intern"/>
+                    <field name="mentor_id"/>
                 </tree>
             </field>
         </record>
@@ -17,7 +20,16 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="name"/>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="phone"/>
+                            <field name="photo"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="mentor_id"/>
+                            <field name="speciality"/>
+                            <field name="is_intern"/>
                         </group>
                     </sheet>
                 </form>
@@ -31,12 +43,10 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="main_menu"
-                  name="Home" sequence="200"/>
 
         <menuitem id="doctor_menu"
                   action="doctor_act_window"
-                  parent="main_menu"
+                  parent="doctor_group_menu"
                   name="Doctor" sequence="200"/>
 
 </odoo>

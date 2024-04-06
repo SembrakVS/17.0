@@ -1,5 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-hr_hospital.access_diseases,access_diseases,hr_hospital.model_diseases,base.group_user,1,1,1,1
-hr_hospital.access_doctor,access_doctor,hr_hospital.model_doctor,base.group_user,1,1,1,1
-hr_hospital.access_pacient,access_pacient,hr_hospital.model_pacient,base.group_user,1,1,1,1
-hr_hospital.access_pacient_visits,access_pacient_visits,hr_hospital.model_pacient_visits,base.group_user,1,1,1,1
+access_diseases,access_diseases,model_diseases,base.group_user,1,1,1,1
+access_diagnos,access_diagnos,model_diagnos,base.group_user,1,1,1,1
+access_speciality,access_speciality,model_speciality,base.group_user,1,1,1,1
+access_doctor,access_doctor,model_doctor,base.group_user,1,1,1,1
+access_pacient,access_pacient,model_pacient,base.group_user,1,1,1,1
+access_pacient_visits,access_pacient_visits,model_pacient_visits,base.group_user,1,1,1,1
+access_change_doctor_wizard,access_change_doctor_wizard,model_change_doctor_wizard,base.group_user,1,1,1,1
+access_disease_report_wizard,access_disease_report_wizard,model_disease_report_wizard,base.group_user,1,1,1,1

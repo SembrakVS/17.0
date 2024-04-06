@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <odoo>
         <record id="diseases_tree" model="ir.ui.view">
             <field name="name">diseases.tree</field>
@@ -37,6 +38,7 @@
 
         <menuitem id="diseases_menu"
                   action="diseases_act_window"
+                  parent="other_group_menu"
                   name="Diseases" sequence="300"/>
 
 

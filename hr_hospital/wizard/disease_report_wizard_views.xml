@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Wizard View Definition -->
+    <record id="view_disease_report_wizard_form" model="ir.ui.view">
+        <field name="name">disease.report.wizard.form</field>
+        <field name="model">disease.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Disease Report">
+                <group>
+                    <field name="doctor_ids"/>
+                    <field name="disease_ids"/>
+                </group>
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="generate_report" string="Generate Report" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to call Wizard from Doctor List and Form Views -->
+    <record id="action_disease_report_wizard" model="ir.actions.act_window">
+        <field name="name">Disease Report Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">disease.report.wizard</field>
+        <field name="view_mode">form,list</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="hr_hospital.model_doctor"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="binding_type">action</field>
+    </record>
+
+<!--    &lt;!&ndash; Action to call Wizard report &ndash;&gt;-->
+<!--    <record id="report_disease_report_wizard" model="ir.actions.act_window">-->
+<!--        <field name="name">Disease Report Wizard</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">disease.report.wizard</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">new</field>-->
+<!--        <field name="binding_model_id" ref="hr_hospital.model_doctor"/>-->
+<!--        <field name="binding_view_types">list,form</field>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Server Action to call Wizard &ndash;&gt;-->
+<!--    <record id="server_action_disease_report_wizard" model="ir.actions.server">-->
+<!--        <field name="name">Diagnoses List</field>-->
+<!--        <field name="model_id" ref="hr_hospital.model_disease_report_wizard"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">-->
+<!--            action = model.action_open_wizard()-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Menu Item to call Wizard &ndash;&gt;-->
+<!--    <record id="menu_disease_report_wizard" model="ir.ui.menu">-->
+<!--        <field name="name">Diagnoses List</field>-->
+<!--        <field name="parent_id" ref="hr_hospital.doctor_menu"/>-->
+<!--        <field name="action" ref="server_action_disease_report_wizard"/>-->
+<!--        <field name="sequence" eval="1"/>-->
+<!--    </record>-->
+
+
+    <menuitem id="menu_action_disease_report_wizard"
+              name="Disease Report"
+              sequence="10"
+              action="action_disease_report_wizard"/>
+
+    </odoo>
