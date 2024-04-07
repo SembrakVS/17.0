@@ -22,6 +22,7 @@
         'views/doctor_views.xml',
         'views/pacient_views.xml',
         'views/pacient_visits_views.xml',
+        'views/diagnos_view.xml',
         'wizard/change_doctor_wizard_views.xml',
         'wizard/disease_report_wizard_views.xml',
     ],

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <record id="diagnos_tree" model="ir.ui.view">
+            <field name="name">diagnos.tree</field>
+            <field name="model">diagnos</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="doctor_id"/>
+                    <field name="diseases_id"/>
+                    <field name="approved"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="diagnos_form" model="ir.ui.view">
+            <field name="name">diagnos.form</field>
+            <field name="model">diagnos</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name='doctor_id'/>
+                            <field name="diseases_id"/>
+                            <field name="visit_id"/>
+                        </group>
+                        <group>
+                            <field name="treatment"/>
+                            <field name="approved"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="diagnos_act_window" model="ir.actions.act_window">
+            <field name="name">Diagnos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">diagnos</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="diagnos_menu"
+                  action="diagnos_act_window"
+                  parent="doctor_group_menu"
+                  name="Diagnos" sequence="250"/>
+
+
+</odoo>

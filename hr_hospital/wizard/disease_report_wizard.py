@@ -19,9 +19,9 @@ class DiseaseReportWizard(models.TransientModel):
     def generate_report(self):
         domain = []
         if self.doctor_ids:
-            domain.append(('doctor_ids', 'in', self.doctor_ids.ids))
+            domain.append(('doctor_id', 'in', self.doctor_ids.ids))
         if self.disease_ids:
-            domain.append(('disease_ids', 'in', self.disease_ids.ids))
+            domain.append(('diseases_id', 'in', self.disease_ids.ids))
         if self.date_from:
             domain.append(('visit_id.visits_date', '>=', self.date_from))
         if self.date_to:
@@ -30,7 +30,7 @@ class DiseaseReportWizard(models.TransientModel):
         diagnoses = self.env['diagnos'].search(domain)
         report_data = {}
         for diagnosis in diagnoses:
-            for disease in diagnosis.diseases_ids:
+            for disease in diagnosis.diseases_id:
                 disease_name = disease.name
                 if disease_name not in report_data:
                     report_data[disease_name] = []
