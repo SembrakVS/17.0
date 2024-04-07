@@ -28,11 +28,11 @@
         <field name="name">Disease Report Wizard</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">disease.report.wizard</field>
-        <field name="view_mode">form,list</field>
+        <field name="view_mode">form</field>
         <field name="target">new</field>
         <field name="binding_model_id" ref="hr_hospital.model_doctor"/>
         <field name="binding_view_types">list,form</field>
-        <field name="binding_type">action</field>
+        <field name="binding_type">report</field>
     </record>
 
 <!--    &lt;!&ndash; Action to call Wizard report &ndash;&gt;-->
@@ -66,9 +66,9 @@
 <!--    </record>-->
 
 
-    <menuitem id="menu_action_disease_report_wizard"
-              name="Disease Report"
-              sequence="10"
-              action="action_disease_report_wizard"/>
+<!--    <menuitem id="menu_action_disease_report_wizard"-->
+<!--              name="Disease Report"-->
+<!--              sequence="10"-->
+<!--              action="action_disease_report_wizard"/>-->
 
     </odoo>
