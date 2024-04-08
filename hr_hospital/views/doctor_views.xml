@@ -31,8 +31,78 @@
                             <field name="speciality"/>
                             <field name="is_intern"/>
                         </group>
+                        <field name="intern_ids" mode="kanban">
+                        <kanban>
+                            <field name="photo"/>
+                            <field name="name"/>
+                            <field name="gender"/>
+                            <field name="speciality"/>
+                            <templates>
+                                <t t-name="kanban-box">
+                                    <div class="oe_kanban_global_click'">
+                                        <div class="oe_kanban_details">
+                                            <field name="photo"/>
+                                            <field name="name"/>
+                                        </div>
+                                        <div class="oe_kanban_bottom">
+                                            <field name="gender"/>
+                                            <field name="speciality"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                    </field>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <record id="doctor_search_view" model="ir.ui.view">
+            <field name="name">doctor.search.view</field>
+            <field name="model">doctor</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="Intern" name="is_intern" domain="[('is_intern', '=', True)]"/>
+                    <filter string="Mentor" name="is_mentor" domain="[('is_intern', '=', False)]"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="view_doctor_kanban" model="ir.ui.view">
+            <field name="name">doctor.kanban</field>
+            <field name="model">doctor</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="photo"/>
+                    <field name="name"/>
+                    <field name="speciality"/>
+                    <field name="phone"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <p>
+                                        <field name="photo"/>
+                                        <field name="name"/>
+                                    </p>
+                                    <p>
+                                        <field name="phone"/>
+                                    </p>
+                                </div>
+                                <div class="oe_kanban_bottom">
+                                    <p>
+                                        <field name="speciality"/>
+                                    </p>
+                                    <p>
+                                        <field name="mentor_id"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
         </record>
 
@@ -40,7 +110,7 @@
             <field name="name">Doctor</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">doctor</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
         </record>
 
 

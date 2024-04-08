@@ -21,26 +21,73 @@
             <field name="model">pacient_visits</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <field name="status_visits" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
                     <sheet>
                         <group>
-                            <field name="status_visits"/>
-                            <field name="planned_visits_date"/>
-                            <field name="visits_date"/>
-                            <field name="doctor_id"/>
-                            <field name="pacient_id"/>
+                            <group>
+                                <field name="planned_visits_date"/>
+                                <field name="visits_date"/>
+                            </group>
+                            <group>
+                                <field name="doctor_id"/>
+                                <field name="pacient_id"/>
+                            </group>
+                            <group>
+                                <field name="diagnos_ids" nolabel="1" colspan="2"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
+        <record id="pacient_visits_calendar" model="ir.ui.view">
+        <field name="name">pacient_visits.calendar</field>
+        <field name="model">pacient_visits</field>
+        <field name="arch" type="xml">
+            <calendar
+                    date_start="planned_visits_date"
+                    date_stop="visits_date"
+                    mode="week"
+                    color='status_visits'>
+                <field name="doctor_id" filters="True"/>
+                <field name="pacient_id"/>
+                <field name="status_visits"/>
+            </calendar>
+        </field>
+    </record>
 
-        <record id="pacient_visits_act_window" model="ir.actions.act_window">
-            <field name="name">Pacient Visits</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">pacient_visits</field>
-            <field name="view_mode">tree,form</field>
-        </record>
+    <record id="pacient_visits_search" model="ir.ui.view">
+        <field name="name">pacient_visits.search</field>
+        <field name="model">pacient_visits</field>
+        <field name="arch" type="xml">
+            <search>
+                <group string="Group By">
+                    <filter string="Status" name="group_by_status" context="{'group_by':'status_visits'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+     <record id="pacient_visits_pivot" model="ir.ui.view">
+        <field name="name">pacient_visits.pivot</field>
+        <field name="model">pacient_visits</field>
+        <field name="arch" type="xml">
+            <pivot disable_linking="True" display_quantity="False" sample="1">
+                <field name="doctor_id" type="row"/>
+                <field name="status_visits" interval="day" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="pacient_visits_act_window" model="ir.actions.act_window">
+        <field name="name">Pacient Visits</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pacient_visits</field>
+        <field name="view_mode">tree,form,calendar,pivot</field>
+    </record>
 
 
         <menuitem id="pacient_visits_menu"

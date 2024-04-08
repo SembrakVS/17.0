@@ -20,6 +20,16 @@
             <field name="model">pacient</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="view_visit_history"
+                                string="View Visit History"
+                                type="object"
+                                class="oe_highlight"/>
+                        <button name="action_create_visits"
+                                string="New Visits"
+                                type="object"
+                                class="oe_highlight"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="first_name"/>
@@ -35,11 +45,24 @@
                             <field name="contact_person"/>
                             <field name="gender"/>
                         </group>
+                        <group string="Diagnoses">
+                            <field name="doctor_diagnosis_history_ids" nolabel="1" colspan="2" readonly="1"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
+        <record id="pacient_search_view" model="ir.ui.view">
+            <field name="name">pacient.search.view</field>
+            <field name="model">pacient</field>
+            <field name="arch" type="xml">
+                <search string="Search Pacients">
+                    <field name="name" string="Name" filter_domain="['|', ('first_name','ilike',self), ('last_name','ilike',self)]"/>
+                    <field name="phone" string="Phone"/>
+                </search>
+            </field>
+        </record>
 
         <record id="pacient_act_window" model="ir.actions.act_window">
             <field name="name">Pacient</field>
