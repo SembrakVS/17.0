@@ -8,8 +8,12 @@ class Diagnos(models.Model):
     visit_id = fields.Many2one(comodel_name='pacient_visits')
     diseases_id = fields.Many2one(comodel_name='diseases')
     doctor_id = fields.Many2one(comodel_name='doctor')
+    pacient_id = fields.Many2one(comodel_name='pacient',
+                                 related='visit_id.pacient_id',
+                                 readonly=True)
     treatment = fields.Text(string='Appointment for treatment')
     approved = fields.Boolean(default=False)
+    visit_date = fields.Datetime(related='visit_id.visits_date', store=True)
 
     @api.model
     def create(self, vals):

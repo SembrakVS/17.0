@@ -27,6 +27,17 @@
             </field>
         </record>
 
+        <record id="diseases_search" model="ir.ui.view">
+            <field name="name">diseases.search</field>
+            <field name="model">diseases</field>
+            <field name="arch" type="xml">
+                <search>
+                    <searchpanel view_types="list">
+                        <field name="parent_id" select="one" groupby="parent_id" hierarchize="1" icon="fa-database"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
 
         <record id="diseases_act_window" model="ir.actions.act_window">
             <field name="name">Diseases</field>

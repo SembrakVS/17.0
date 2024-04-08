@@ -15,8 +15,21 @@ class Doctor(models.Model):
         domain="[('is_intern', '=', True)]",
         attrs={'invisible': [('is_intern', '=', False)]}
     )
+    intern_ids = fields.One2many(
+        comodel_name='doctor',
+        compute='_compute_intern_ids',
+        string='Interns')
 
     @api.depends('first_name', 'last_name')
     def _compute_name(self):
         for rec in self:
             rec.name = "%s %s" % (rec.first_name, rec.last_name or '')
+
+    @api.depends('is_intern')
+    def _compute_intern_ids(self):
+        for doctor in self:
+            if doctor.is_intern:
+                doctor.intern_ids = False
+            else:
+                doctor.intern_ids = self.search([(
+                    'mentor_id', '=', 'doctor.id')])
