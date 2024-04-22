@@ -25,6 +25,8 @@
         'views/diagnos_view.xml',
         'wizard/change_doctor_wizard_views.xml',
         'wizard/disease_report_wizard_views.xml',
+        'report/report_doctor_template.xml',
+        'report/report_doctor.xml',
     ],
 
     'demo': [

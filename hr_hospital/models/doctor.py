@@ -19,6 +19,7 @@ class Doctor(models.Model):
         comodel_name='doctor',
         compute='_compute_intern_ids',
         string='Interns')
+    pacient_visit_id = fields.One2many('pacient_visits', 'doctor_id')
 
     @api.depends('first_name', 'last_name')
     def _compute_name(self):
