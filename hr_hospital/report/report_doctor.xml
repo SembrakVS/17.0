@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_doctor" model="ir.actions.report">
+        <field name="name">Doctor details list</field>
+        <field name="model">doctor</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_hospital.report_doctor_template</field> <!-- Зміна значення поля report_name -->
+        <field name="report_file">hr_hospital.report_doctor_template</field>
+        <field name="binding_model_id" ref="model_doctor"/>
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">form</field>
+    </record>
+</odoo>

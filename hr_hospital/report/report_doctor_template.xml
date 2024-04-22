@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_doctor_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div>
+                        <div class="col-6">
+                            <img t-att-src="image_data_uri(user.company_id.logo)"
+                                 alt="logo"/>
+                            <p>
+                                <t t-esc="user.company_id.name"/>
+                            </p>
+                            <p>
+                                <t t-esc="user.company_id.phone"/>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="float:left;">
+                            <strong>
+                                <t t-esc="user.company_id.street"/>
+                            </strong>
+                        </div>
+                        <div name="hospital_date_time" style="float:right;">
+                            <strong>
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y %H:%M')"/>
+                            </strong>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong>
+                            <span t-esc="doc.name"/>
+                            <span t-esc="doc.speciality.name"/>
+                        </strong>
+                        <div>
+                            <table class="table-bordered"
+                                   style="border: 1px solid black;"
+                                   width="100%">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Birthday</th>
+                                    <th>Phone</th>
+                                    <th>Visit's status</th>
+                                </tr>
+                                <t t-foreach="doc.pacient_visit_id" t-as="visit_id">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="visit_id.pacient_id.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="visit_id.pacient_id.gender"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="visit_id.pacient_id.birthday"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="visit_id.pacient_id.phone"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="visit_id.status_visits"/>
+                                            <t t-if="visit_id.status_visits=='scheduled'">
+                                                <div style="height:20px; background-color: yellow;"/>
+                                            </t>
+                                            <t t-elif="visit_id.status_visits=='completed'">
+                                                <div style="height:20px; background-color: green;"/>
+                                            </t>
+                                            <t t-elif="visit_id.status_visits=='cancelled'">
+                                                <div style="height:20px; background-color: red;"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
